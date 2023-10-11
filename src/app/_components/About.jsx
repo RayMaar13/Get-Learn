@@ -29,6 +29,7 @@ export const About = () => {
             className={
               "aspect-[3/2] w-[20rem] rounded object-contain md:w-[36rem] lg:w-[40rem]"
             }
+            priority={true}
           />
           <div className={"w-10/12 md:w-1/2"}>
             <h1

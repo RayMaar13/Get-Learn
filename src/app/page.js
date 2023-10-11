@@ -1,10 +1,10 @@
 import Image from "next/image";
 import heroImage from "./_assets/images/hero.jpg";
-import amazon from "./_assets/images/Amazon Logo.png";
-import facebook from "./_assets/images/facebook Logo.png";
-import google from "./_assets/images/google Logo.png";
-import microsoft from "./_assets/images/microsoft Logo.png";
-import tesla from "./_assets/images/tesla Logo.png";
+import amazon from "./_assets/images/Amazon-Logo.png";
+import facebook from "./_assets/images/Facebook-Logo.png";
+import google from "./_assets/images/Google-Logo.png";
+import microsoft from "./_assets/images/Microsoft-Logo.png";
+import tesla from "./_assets/images/Tesla-Logo.png";
 import { Navbar } from "@/app/_components/Navbar/Navbar";
 import styles from "./Home.module.css";
 import { HeroWave } from "@/app/_components/HeroWave";

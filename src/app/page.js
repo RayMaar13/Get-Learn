@@ -111,7 +111,11 @@ export default function Home() {
         </div>
         {/*About Section*/}
         <About />
+        {/*Service Section*/}
         <Service />
+        <section className={"h-80"}>
+
+        </section>
       </main>
     </>
   );

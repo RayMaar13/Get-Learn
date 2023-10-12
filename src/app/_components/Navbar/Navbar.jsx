@@ -14,7 +14,7 @@ export const Navbar = () => {
     <>
       <nav
         className={
-          "mx-6 flex justify-between bg-transparent pt-6 font-inter text-gray-200 md:mx-24"
+          "mx-6 flex justify-between bg-transparent pt-6 font-inter text-gray-200 md:mx-24 items-center text-center"
         }
       >
         <Link href={"/"}>

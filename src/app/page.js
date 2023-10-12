@@ -73,7 +73,7 @@ export default function Home() {
             className={
               "aspect-[3/2] w-20 object-contain grayscale hover:grayscale-0 sm:w-24 md:mt-4 lg:mt-6 lg:w-32 xl:w-44"
             }
-            priority={true}
+            loading="lazy"
           />
           <Image
             src={facebook}
@@ -81,7 +81,7 @@ export default function Home() {
             className={
               "aspect-[3/2] w-20 object-contain grayscale hover:grayscale-0 sm:w-24 lg:w-32 xl:w-44"
             }
-            priority={true}
+            loading="lazy"
           />
           <Image
             src={google}
@@ -89,7 +89,7 @@ export default function Home() {
             className={
               "aspect-[3/2] w-20 object-contain grayscale hover:grayscale-0 sm:w-24 lg:w-32 xl:w-44"
             }
-            priority={true}
+            loading="lazy"
           />
           <Image
             src={microsoft}
@@ -97,7 +97,7 @@ export default function Home() {
             className={
               "aspect-[3/2] w-20 object-contain grayscale hover:grayscale-0 sm:w-24 lg:w-32 xl:w-44"
             }
-            priority={true}
+            loading="lazy"
           />
           <Image
             src={tesla}
@@ -106,16 +106,14 @@ export default function Home() {
               "aspect-[3/2] w-20 object-contain grayscale hover:grayscale-0 sm:w-24 lg:w-32 xl:w-44"
             }
             quality={"50"}
-            loading={"eager"}
+            loading="lazy"
           />
         </div>
         {/*About Section*/}
         <About />
         {/*Service Section*/}
         <Service />
-        <section className={"h-80"}>
-
-        </section>
+        <section className={"h-80"}></section>
       </main>
     </>
   );

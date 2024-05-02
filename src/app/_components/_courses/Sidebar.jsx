@@ -1,16 +1,49 @@
+"use client";
 import { MdOutlineFilterAlt } from "react-icons/md";
 import { IoMdClose } from "react-icons/io";
 import "./Sidebar.css";
-export const Sidebar = ({ children, isFilterClicked, filterHandler }) => {
+import { usePathname, useRouter } from "next/navigation";
+import { useRef } from "react";
+
+const Sidebar = ({ children, isFilterClicked, filterHandler }) => {
+  const router = useRouter();
+  const pathname = usePathname();
+  let apiurl = pathname;
+  const checkboxesRef = useRef([]);
+  const filterChangeHandler = async (event) => {
+    const paramName = event.target.name;
+    const paramValue = event.target.value;
+
+    if (event.target.checked) {
+      let queryParams = new URLSearchParams(window.location.search);
+      queryParams.set(paramName, paramValue);
+      const newUrl = `${window.location.pathname}?${queryParams.toString()}`;
+      router.push(newUrl);
+    }
+  };
+
+  const resetCheckboxes = () => {
+    let queryParams = new URLSearchParams(window.location.search);
+    checkboxesRef.current.forEach((checkbox) => {
+      if (checkbox && checkbox.checked) {
+        queryParams.delete("certi");
+        queryParams.delete("price");
+        queryParams.delete("level");
+        router.push(apiurl);
+        checkbox.checked = false;
+      }
+    });
+  };
+
   return (
     <div className={"relative flex "}>
       {/*w-1/2*/}
       <aside
         className={`absolute mr-5 mt-10 backdrop-blur-sm  md:static  ${
           isFilterClicked ? "block animate-fadeIn" : "hidden "
-        } lg:bg-transparent-pulse flex w-full pb-10 pl-3 pt-20 font-montserrat text-dark-slate-gray md:block md:w-1/4 md:border-r-2`}
+        } lg:bg-transparent-pulse flex w-full pb-10 pl-3 pt-20 font-montserrat text-dark-slate-gray md:block md:border-r-2 lg:w-[30%]`}
       >
-        <div className={"h-[29rem] w-2/3 bg-light-white md:w-fit"}>
+        <div className={"h-[31rem] w-2/3 bg-light-white md:w-fit"}>
           <span className={"flex items-center"}>
             <span className={"flex items-center"}>
               <MdOutlineFilterAlt size={23} />
@@ -23,9 +56,14 @@ export const Sidebar = ({ children, isFilterClicked, filterHandler }) => {
               <div className="checkbox-wrapper">
                 <input
                   id="certificate"
-                  type="checkbox"
-                  className="input-checkbox"
+                  type="radio"
+                  name={"certi"}
+                  ref={(element) => {
+                    checkboxesRef.current.push(element);
+                  }}
                   value={"true"}
+                  className="input-checkbox"
+                  onChange={filterChangeHandler}
                 />
                 <svg>
                   <use xlinkHref="#checkmark" />
@@ -45,9 +83,14 @@ export const Sidebar = ({ children, isFilterClicked, filterHandler }) => {
               <div className="checkbox-wrapper">
                 <input
                   id="no-certificate"
-                  type="checkbox"
+                  type="radio"
+                  name={"certi"}
+                  ref={(element) => {
+                    checkboxesRef.current.push(element);
+                  }}
                   className="input-checkbox"
                   value={"false"}
+                  onChange={filterChangeHandler}
                 />
                 <svg>
                   <use xlinkHref="#checkmark" />
@@ -70,9 +113,14 @@ export const Sidebar = ({ children, isFilterClicked, filterHandler }) => {
               <div className="checkbox-wrapper">
                 <input
                   id="paid"
-                  type="checkbox"
+                  type="radio"
+                  name={"price"}
+                  ref={(element) => {
+                    checkboxesRef.current.push(element);
+                  }}
                   className="input-checkbox"
                   value={"premium"}
+                  onChange={filterChangeHandler}
                 />
                 <svg>
                   <use xlinkHref="#checkmark" />
@@ -92,9 +140,14 @@ export const Sidebar = ({ children, isFilterClicked, filterHandler }) => {
               <div className="checkbox-wrapper">
                 <input
                   id="free"
-                  type="checkbox"
+                  type="radio"
+                  name={"price"}
+                  ref={(element) => {
+                    checkboxesRef.current.push(element);
+                  }}
                   className="input-checkbox"
                   value={"free"}
+                  onChange={filterChangeHandler}
                 />
                 <svg>
                   <use xlinkHref="#checkmark" />
@@ -117,9 +170,14 @@ export const Sidebar = ({ children, isFilterClicked, filterHandler }) => {
               <div className="checkbox-wrapper">
                 <input
                   id="all-level"
-                  type="checkbox"
+                  type="radio"
+                  name={"level"}
+                  ref={(element) => {
+                    checkboxesRef.current.push(element);
+                  }}
                   className="input-checkbox"
                   value={"all-level"}
+                  onChange={filterChangeHandler}
                 />
                 <svg>
                   <use xlinkHref="#checkmark" />
@@ -139,9 +197,14 @@ export const Sidebar = ({ children, isFilterClicked, filterHandler }) => {
               <div className="checkbox-wrapper">
                 <input
                   id="beginner"
-                  type="checkbox"
+                  type="radio"
+                  name={"level"}
+                  ref={(element) => {
+                    checkboxesRef.current.push(element);
+                  }}
                   className="input-checkbox"
                   value={"beginner"}
+                  onChange={filterChangeHandler}
                 />
                 <svg>
                   <use xlinkHref="#checkmark" />
@@ -161,9 +224,14 @@ export const Sidebar = ({ children, isFilterClicked, filterHandler }) => {
               <div className="checkbox-wrapper">
                 <input
                   id="intermediate"
-                  type="checkbox"
+                  type="radio"
+                  name={"level"}
+                  ref={(element) => {
+                    checkboxesRef.current.push(element);
+                  }}
                   className="input-checkbox"
                   value={"intermediate"}
+                  onChange={filterChangeHandler}
                 />
                 <svg>
                   <use xlinkHref="#checkmark" />
@@ -183,9 +251,14 @@ export const Sidebar = ({ children, isFilterClicked, filterHandler }) => {
               <div className="checkbox-wrapper">
                 <input
                   id="advance"
-                  type="checkbox"
+                  type="radio"
+                  name={"level"}
+                  ref={(element) => {
+                    checkboxesRef.current.push(element);
+                  }}
                   className="input-checkbox"
                   value={"advance"}
+                  onChange={filterChangeHandler}
                 />
                 <svg>
                   <use xlinkHref="#checkmark" />
@@ -201,6 +274,15 @@ export const Sidebar = ({ children, isFilterClicked, filterHandler }) => {
                     ></path>
                   </symbol>
                 </svg>
+              </div>
+              <div className={"mr-3 flex justify-end md:mr-2  "}>
+                <button
+                  className={" text-blue-500 hover:text-indigo-600"}
+                  onClick={resetCheckboxes}
+                  type="button"
+                >
+                  reset
+                </button>
               </div>
             </div>
           </form>
@@ -222,3 +304,5 @@ export const Sidebar = ({ children, isFilterClicked, filterHandler }) => {
     </div>
   );
 };
+
+export default Sidebar;

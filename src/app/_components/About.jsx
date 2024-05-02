@@ -20,7 +20,7 @@ export const About = () => {
         </div>
         <div
           className={
-            "flex flex-col items-center justify-center gap-6 md:flex-row "
+            "flex flex-col items-center justify-center gap-6 lg:flex-row "
           }
         >
           <Image
@@ -31,7 +31,7 @@ export const About = () => {
             }
             priority={true}
           />
-          <div className={"w-10/12 md:w-1/2"}>
+          <div className={"w-10/12 lg:w-1/2"}>
             <h1
               className={
                 " mb-3 pt-5 font-poppins text-base font-medium md:text-2xl"

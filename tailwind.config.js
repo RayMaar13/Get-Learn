@@ -12,6 +12,13 @@ module.exports = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      colors: {
+        "ghost-white": "#F8F8FF",
+        "light-white": "#F0F8FF",
+        snow: "#FFFAFA",
+        ivory: "#FFFFF0",
+        "dark-slate-gray": "#0D1717",
+      },
       width: {
         71: "280px",
       },
@@ -37,9 +44,24 @@ module.exports = {
             opacity: "100%",
           },
         },
+        pulse: {
+          "0%": {
+            opacity: 0,
+          },
+          "50%": {
+            opacity: 0.5,
+          },
+          "100%": {
+            opacity: 1,
+          },
+        },
       },
       animation: {
         showDown: "down 500ms ease-out",
+        fadeIn: "pulse 200ms ease-in ",
+      },
+      screens: {
+        "2xl": "1520px",
       },
     },
   },

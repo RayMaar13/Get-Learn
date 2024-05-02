@@ -7,24 +7,28 @@ export const NavbarLink = (props) => {
         <Link
           href={"/"}
           className={"transition-colors hover:scale-110 hover:text-neutral-300"}
+          onClick={props.linkClick}
         >
           Home
         </Link>
         <Link
           href={"/#about"}
           className={"transition-colors hover:scale-110 hover:text-neutral-300"}
+          onClick={props.linkClick}
         >
           About
         </Link>
         <Link
           href={"/#service"}
           className={"transition-colors hover:scale-110 hover:text-neutral-300"}
+          onClick={props.linkClick}
         >
           Service
         </Link>
         <Link
-          href={"/Courses"}
+          href={"/courses"}
           className={"transition-colors hover:scale-110 hover:text-neutral-300"}
+          onClick={props.linkClick}
         >
           Courses
         </Link>

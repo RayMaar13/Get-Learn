@@ -5,22 +5,24 @@ import facebook from "./_assets/images/Facebook-Logo.png";
 import google from "./_assets/images/Google-Logo.png";
 import microsoft from "./_assets/images/Microsoft-Logo.png";
 import tesla from "./_assets/images/Tesla-Logo.png";
-import { Navbar } from "@/app/_components/Navbar/Navbar";
 import styles from "./Home.module.css";
 import { HeroWave } from "@/app/_components/HeroWave";
 import { About } from "@/app/_components/About";
 import { Service } from "@/app/_components/Service";
+import Course from "./_components/Course";
+import Footer from "./_components/Footer";
 
-export default function Home() {
+
+
+
+export default async function Home() {
   return (
     <>
       <header className={"relative z-30 bg-blue-700 transition-all"}>
-        {/*Navbar*/}
-        <Navbar />
         {/*Hero Section*/}
         <section
           className={
-            "container relative mx-auto mt-16 flex w-fit flex-col-reverse items-center gap-20 text-gray-200 md:flex-row lg:gap-44 "
+            "container relative mx-auto flex w-fit flex-col-reverse items-center gap-20 text-gray-200 md:flex-row lg:gap-44 "
           }
         >
           <div className={"ml-5"}>
@@ -50,7 +52,7 @@ export default function Home() {
               src={heroImage}
               alt={"Hero Image"}
               className={
-                "relative z-10 aspect-square w-screen md:aspect-auto md:w-71 md:rounded"
+                "relative z-10 aspect-square w-screen shadow-xl md:aspect-auto md:w-71 md:rounded"
               }
               priority={true}
               placeholder={"blur"}
@@ -59,7 +61,7 @@ export default function Home() {
           </div>
         </section>
       </header>
-      <main className={"h-52"}>
+      <main>
         <HeroWave />
         {/*Company List */}
         <div
@@ -113,8 +115,11 @@ export default function Home() {
         <About />
         {/*Service Section*/}
         <Service />
-        <section className={"h-80"}></section>
+        {}
+        {/* Course Section */}
+        <Course />
       </main>
+      <Footer />
     </>
   );
 }
